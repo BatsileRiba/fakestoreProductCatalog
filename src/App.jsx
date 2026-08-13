@@ -13,7 +13,7 @@ function App() {
       setError(false);
 
       try {
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch('https://fakestoreapi.com/products'); //fetch data from the API
 
         if (!response.ok) {
           throw new Error('Network Error');
@@ -36,7 +36,7 @@ function App() {
   };
 
   const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+    product.title.toLowerCase().includes(searchQuery.toLowerCase()) //filter products based on the search query, ignoring case
   );
 
   return (
@@ -56,7 +56,7 @@ function App() {
       {error && (
         <p className="status error">
           Oopss, failed to load products. Please try refreshing the page :).
-        </p>
+        </p> //show an error message if there was an error fetching the products
       )}
 
       {!loading && !error && filteredProducts.length === 0 && (
